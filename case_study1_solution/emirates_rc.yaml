@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: emiratescs
+spec:
+  replicas: 2
+  selector:
+    app: emiratescs
+  template:
+    metadata:
+      labels:
+        app: emiratescs
+      name: emiratescs
+    spec:
+      containers:
+        -
+          args:
+            - "-n"
+            - "-c"
+            - /etc/supervisor/supervisord.conf
+          command:
+            - /usr/bin/supervisord
+          image: kommuri44/emirates_casestudy1
+          name: test5-rc
+          ports:
+            -
+              containerPort: 80
+              name: emiratescs-port

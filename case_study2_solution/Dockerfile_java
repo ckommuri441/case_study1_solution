@@ -1,0 +1,5 @@
+FROM openjdk:8-jdk-alpine3.7 
+RUN java -version
+COPY . /usr/src/myapp/
+WORKDIR /usr/src/myapp/
+ENTRYPOINT ["java", "-jar", "target/hello-dropwizard-1.0-SNAPSHOT.jar","server","example.yaml"]

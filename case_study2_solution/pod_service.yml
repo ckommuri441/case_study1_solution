@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxhelloworld-cs2
+spec:
+ ports:
+  - port: 9000
+    targetPort: nginx-port
+    protocol: TCP
+ selector:
+    app: web
+ type: LoadBalancer
